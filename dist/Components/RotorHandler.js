@@ -10,12 +10,10 @@ class RotorHandler {
         this.doStep = (this.rotor.notch.includes(this.offset));
     }
     static applyRingTransform(rotor, ringSetting) {
-        console.log(rotor.wiring);
         let newWiring = [];
         for (let i = 0; i < 26; i++) {
             newWiring[i] = rotor.wiring[(i - ringSetting + 26) % 26] + ringSetting;
         }
-        console.log(newWiring);
         return { wiring: newWiring, notch: rotor.notch };
     }
     step() {

@@ -8,4 +8,4 @@ let machine = Enigma.fromInitVector({
     startPosition: [`A`, `A`, `A`],
     key: [`A`, `A`, `A`]
 });
-console.log(machine.getCipherText(`AAAAA`))
+console.log(machine.getCipherText(`AAAAA`)) // -> EWTYX if engine is correctgit
