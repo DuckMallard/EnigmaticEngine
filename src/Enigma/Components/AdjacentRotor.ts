@@ -1,0 +1,1 @@
+type AdjacentRotor = RotorHandler | null;

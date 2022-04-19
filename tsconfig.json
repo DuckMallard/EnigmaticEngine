@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "module": "commonjs",
+        "noImplicitAny": false,
+        "removeComments": true,
+        "outDir": "./dist",
+        "preserveConstEnums": true,
+        "target": "ES2016",
+    },
+    "include": ["./src"],
+}

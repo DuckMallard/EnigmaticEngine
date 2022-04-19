@@ -1,0 +1,23 @@
+{
+  "name": "enigmaticengine",
+  "version": "1.0.0",
+  "description": "A fast, authentic and modular implementation of Enigma encryption, all in TypeScript!",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuckMallard/EnigmaticEngine.git"
+  },
+  "keywords": [
+    "Engima"
+  ],
+  "author": "JMayh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DuckMallard/EnigmaticEngine/issues"
+  },
+  "homepage": "https://github.com/DuckMallard/EnigmaticEngine#readme"
+}
