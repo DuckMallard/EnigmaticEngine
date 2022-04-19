@@ -1,3 +1,0 @@
-interface Reflector {
-    wiring: number[];
-}
