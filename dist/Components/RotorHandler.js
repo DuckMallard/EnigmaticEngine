@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.RotorHandler = void 0;
 class RotorHandler {
     constructor(rotor, offset) {
         this.leftRotor = null;
@@ -7,10 +10,12 @@ class RotorHandler {
         this.doStep = (this.rotor.notch.includes(this.offset));
     }
     static applyRingTransform(rotor, ringSetting) {
+        console.log(rotor.wiring);
         let newWiring = [];
         for (let i = 0; i < 26; i++) {
-            newWiring[i] = rotor.wiring[(ringSetting + rotor.wiring[i]) % 26] + ringSetting;
+            newWiring[i] = rotor.wiring[(i - ringSetting + 26) % 26] + ringSetting;
         }
+        console.log(newWiring);
         return { wiring: newWiring, notch: rotor.notch };
     }
     step() {
@@ -40,3 +45,4 @@ class RotorHandler {
         return (-this.offset + index + 26) % 26;
     }
 }
+exports.RotorHandler = RotorHandler;

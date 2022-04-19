@@ -1,3 +1,6 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.rotors = void 0;
 let rotors = {
     "I": {
         wiring: [4, 10, 12, 5, 11, 6, 3, 16, 21, 25, 13, 19, 14, 22, 24, 7, 23, 20, 18, 15, 0, 8, 1, 17, 2, 9],
@@ -32,3 +35,4 @@ let rotors = {
         notch: [12, 25]
     }
 };
+exports.rotors = rotors;

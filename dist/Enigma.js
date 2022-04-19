@@ -7,6 +7,11 @@ var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (
 var _Enigma_instances, _Enigma_getCipherChar;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Enigma = void 0;
+const rotorConfig_1 = require("./Components/rotorConfig");
+const reflectorConfig_1 = require("./Components/reflectorConfig");
+const RotorHandler_1 = require("./Components/RotorHandler");
+const ReflectorHandler_1 = require("./Components/ReflectorHandler");
+const PlugBoardHandler_1 = require("./Components/PlugBoardHandler");
 class Enigma {
     constructor(rotors, reflector, plugBoard) {
         _Enigma_instances.add(this);
@@ -23,16 +28,16 @@ class Enigma {
     }
     getCipherText(str) {
         let cipherText = ``;
-        for (let i = 0; i < String.length; i++) {
+        for (let i = 0; i < str.length; i++) {
             cipherText += __classPrivateFieldGet(this, _Enigma_instances, "m", _Enigma_getCipherChar).call(this, str[i]);
         }
         return cipherText;
     }
     static fromInitVector(initVector) {
-        let _rotors = initVector.wheelOrder.map((wheelType) => rotors[wheelType]);
-        let _rotorHandlers = _rotors.map((_rotor, i) => new RotorHandler(RotorHandler.applyRingTransform(_rotor, (initVector.ringSettings[i].charCodeAt(0) - 65)), (initVector.startPosition[i].charCodeAt(0) - 65)));
-        let _reflector = new ReflectorHandler(reflectors[initVector.reflector]);
-        let _plugBoard = new PlugBoardHandler({ plugs: initVector.plugBoard });
+        let _rotors = initVector.wheelOrder.map((wheelType) => rotorConfig_1.rotors[wheelType]);
+        let _rotorHandlers = _rotors.map((_rotor, i) => new RotorHandler_1.RotorHandler(RotorHandler_1.RotorHandler.applyRingTransform(_rotor, (initVector.ringSettings[i].charCodeAt(0) - 65)), (initVector.startPosition[i].charCodeAt(0) - 65)));
+        let _reflector = new ReflectorHandler_1.ReflectorHandler(reflectorConfig_1.reflectors[initVector.reflector]);
+        let _plugBoard = new PlugBoardHandler_1.PlugBoardHandler({ plugs: initVector.plugBoard });
         return new Enigma(_rotorHandlers, _reflector, _plugBoard);
     }
 }
